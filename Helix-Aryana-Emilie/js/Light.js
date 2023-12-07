@@ -9,12 +9,15 @@ export default class Light {
     this.scene.add(ambientLight);
 
     // Spotlight
-    this.spotLight = new THREE.SpotLight(0xffffff, 20);
-    this.spotLight.position.set(3, 5, 0);
+    this.spotLight = new THREE.SpotLight(0xffffff, 10);
+    this.spotLight.position.set(0, 1, -2.2);
     // control shadows
     this.spotLight.castShadow = true;
     this.spotLight.shadow.mapSize.width = 4096;
     this.spotLight.shadow.mapSize.height = 4096;
+    this.spotLight.angle = 1;
+    this.spotLight.penumbra = 1;
+    this.spotLight.intensity = 40;
 
     this.scene.add(this.spotLight);
     //helper

@@ -48,8 +48,8 @@ export default class Shape {
 
     const material = new THREE.LineBasicMaterial();
 
-    // this.helixLine = new THREE.Line(geometry, material);
-    // this.helixLine.rotateX(Math.PI / -2);
+    this.helixLine = new THREE.Line(geometry, material);
+    this.helixLine.rotateX(Math.PI / -2);
 
     this.helixCurve = new THREE.CatmullRomCurve3(points);
     const rotationMatrix = new THREE.Matrix4().makeRotationX(Math.PI / -2);
@@ -57,7 +57,7 @@ export default class Shape {
       point.applyMatrix4(rotationMatrix);
     });
 
-    this.scene.add(this.helixLine);
+    // this.scene.add(this.helixLine);
     return this.helixCurve;
   }
 }

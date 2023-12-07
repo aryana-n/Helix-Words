@@ -20,7 +20,7 @@ export default class Text {
     return this.text._size;
   }
 
-  createText(_text, font) {
+  createText(_text, font, addToScene = true) {
     const geometry = new TextGeometry(_text, {
       font: font,
       size: 0.3,
@@ -32,7 +32,7 @@ export default class Text {
       //   bevelOffset: 0,
       //   bevelSegments: 5,
     });
-    const material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+    const material = new THREE.MeshPhongMaterial({ color: 0x416788 });
     this.text = new THREE.Mesh(geometry, material);
     // this.text.rotateX(-Math.PI / 2);
     this.text.castShadow = true;
@@ -47,11 +47,11 @@ export default class Text {
     this.textHolder = new THREE.Object3D();
     this.textHolder.add(this.text);
     // center this.text to the origin of the 3d object
-    this.text.position.x = -size.x / 2;
-    this.text.position.y = -size.y / 2;
-    this.text.position.z = -size.z / 2;
+    // this.text.position.x = -size.x / 2;
+    // this.text.position.y = -size.y / 2;
+    // this.text.position.z = -size.z / 2;
 
-    this.scene.add(this.textHolder);
+    if (addToScene) this.scene.add(this.textHolder);
     return this.textHolder;
   }
 }
